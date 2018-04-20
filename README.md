@@ -4,12 +4,12 @@
 ### WSL Configuration / Install
 Run the following to configure WSL from scratch...
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/tommynsong/dotfiles/wsl-dev/configure.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/tommynsong/dotfiles/wsl/configure.sh)"
 ```
 ### WSL Emulator Install
 Run the following command from an Administrator PowerShell prompt...
 ```
-Set-ExecutionPolicy Bypass; irm 'https://raw.githubusercontent.com/tommynsong/dotfiles/wsl-dev/wslterm.ps1' | iex;
+Set-ExecutionPolicy Bypass; irm 'https://raw.githubusercontent.com/tommynsong/dotfiles/wsl/wslterm.ps1' | iex;
 ```
 
 ### Notes
