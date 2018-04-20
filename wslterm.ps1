@@ -8,40 +8,40 @@ $wid = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 $prp = new-object System.Security.Principal.WindowsPrincipal($wid)
 $adm = [System.Security.Principal.WindowsBuiltInRole]::Administrator
 if (-not $prp.IsInRole($adm)) {
-    throw "This script requires elevated rights to install software.. Please run from an elevated shell session."
+  throw "This script requires elevated rights to install software.. Please run from an elevated shell session."
 }
 
 # Check for 7z install
 Write-Progress -Activity "Validating Dependencies" -Status "Checking for 7zip"
 $7z_Application = get-command 7z.exe -ErrorAction SilentlyContinue | select-object -expandproperty Path
 if ([string]::IsNullOrEmpty($7z_Application)) {   
-    $7z_Application = "C:\Program Files\7-Zip\7z.exe"
+  $7z_Application = "C:\Program Files\7-Zip\7z.exe"
 }
 
 if (-not (Test-Path $7z_Application)) {
-    Write-Progress -Activity "Validating Dependencies" -Status "Installing 7zip"
-    # Path for the workdir
-    $workdir = "c:\installer\"
+  Write-Progress -Activity "Validating Dependencies" -Status "Installing 7zip"
+  # Path for the workdir
+  $workdir = "c:\installer\"
 
-    # Check if work directory exists if not create it
-    If (-not (Test-Path -Path $workdir -PathType Container)) { 
-        New-Item -Path $workdir  -ItemType directory 
-    }
+  # Check if work directory exists if not create it
+  If (-not (Test-Path -Path $workdir -PathType Container)) { 
+    New-Item -Path $workdir  -ItemType directory 
+  }
 
-    # Download the installer
-    $source = "http://www.7-zip.org/a/7z1801-x64.msi"
-    $destination = "$workdir\7-Zip.msi"
+  # Download the installer
+  $source = "http://www.7-zip.org/a/7z1801-x64.msi"
+  $destination = "$workdir\7-Zip.msi"
 
-    Invoke-WebRequest $source -OutFile $destination 
+  Invoke-WebRequest $source -OutFile $destination 
 
-    # Start the installation
-    msiexec.exe /i "$workdir\7-Zip.msi" /qb
-    # Wait XX Seconds for the installation to finish
-    Start-Sleep -s 35
+  # Start the installation
+  msiexec.exe /i "$workdir\7-Zip.msi" /qb
+  # Wait XX Seconds for the installation to finish
+  Start-Sleep -s 35
 
-    # Remove the installer
-    Remove-Item -Force $workdir\7*
-    Write-Progress -Activity "Validating Dependencies" -Status "Installing 7zip" -Completed	
+  # Remove the installer
+  Remove-Item -Force $workdir\7*
+  Write-Progress -Activity "Validating Dependencies" -Status "Installing 7zip" -Completed	
 }
 Write-Progress -Activity "Validating Dependencies" -Completed
 
@@ -58,20 +58,20 @@ Invoke-WebRequest -Uri "https://github.com/goreliu/wsl-terminal/releases/downloa
 
 Write-Progress -Activity "Extract WSL terminal and remove after complete"
 Get-Item $wslTerminal | ForEach-Object {
-    $7z_Arguments = @(
-        'x'							## eXtract files with full paths
-        '-y'						## assume Yes on all queries
-        "`"-o$($env:USERPROFILE)`""		## set Output directory
-        "`"$($_.FullName)`""				## <archive_name>
-    )
-    & $7z_Application $7z_Arguments
-    If ($LASTEXITCODE -eq 0) {
-        Remove-Item -Path $_.FullName -Force
-    }
+  $7z_Arguments = @(
+    'x'							## eXtract files with full paths
+    '-y'						## assume Yes on all queries
+    "`"-o$($env:USERPROFILE)`""		## set Output directory
+    "`"$($_.FullName)`""				## <archive_name>
+  )
+  & $7z_Application $7z_Arguments
+  If ($LASTEXITCODE -eq 0) {
+    Remove-Item -Path $_.FullName -Force
+  }
 }
 
 Write-Progress -Activity "Ensure symlink exists"
 $symlink = "$env:USERPROFILE\Desktop\wsl.lnk"
 If (-not (Test-Path -Path $symlink)) {
-    New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\Desktop\" -Name "wsl.lnk" -Value "$env:USERPROFILE\wsl-terminal\open-wsl.exe" 
+  New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\Desktop\" -Name "wsl.lnk" -Value "$env:USERPROFILE\wsl-terminal\open-wsl.exe" 
 }
