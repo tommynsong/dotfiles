@@ -1,4 +1,5 @@
-# tommynsong does dotfiles - forked from holman's repo
+# tommynsong does dotfiles - forked from jldeen's repo
+
 
 ### WSL Configuration / Install
 Run the following to configure WSL from scratch...
