@@ -138,3 +138,5 @@ alias k="kubectl"
 # az cli
 autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
+
+export GPG_TTY=$(tty)
