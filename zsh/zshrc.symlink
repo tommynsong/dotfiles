@@ -138,3 +138,5 @@ export PATH=$PATH:~/bin
 # az cli
 # autoload bashcompinit && bashcompinit
 # source /usr/bin/az
+
+export GPG_TTY=$(tty)
