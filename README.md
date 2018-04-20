@@ -1,18 +1,23 @@
 # tommynsong does dotfiles - forked from jldeen's repo
 
+## WSL Configuration / Install
 
-### WSL Configuration / Install
 Run the following to configure WSL from scratch...
-```
+
+```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/tommynsong/dotfiles/wsl/configure.sh)"
 ```
+
 ### WSL Emulator Install
+
 Run the following command from an Administrator PowerShell prompt...
-```
+
+```bash
 Set-ExecutionPolicy Bypass; irm 'https://raw.githubusercontent.com/tommynsong/dotfiles/wsl/wslterm.ps1' | iex;
 ```
 
 ### Notes
+
 Your dotfiles are how you personalize your system. These are mine.
 
 I was a little tired of having long alias files and everything strewn about
