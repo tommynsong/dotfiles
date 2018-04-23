@@ -97,16 +97,20 @@ DEFAULT_USER="tommynsong"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  sudo 
-  git 
-  history 
-  taskwarrior 
-  tmux 
-  tmuxinator 
+  sudo
+  git
+  history
+  taskwarrior
+  tmux
+  tmuxinator
   zsh-autosuggestions
   gpg-agent
   git-flow-avh
   ssh-agent
+  pass
+  terraform
+  pylint
+  aws
 )
 
 source $ZSH/oh-my-zsh.sh
