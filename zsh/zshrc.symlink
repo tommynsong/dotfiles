@@ -158,4 +158,4 @@ export PATH=$PATH:~/bin
 # autoload bashcompinit && bashcompinit
 # source /usr/bin/az
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.armor/bin/:$HOME/.local/bin:$PATH
