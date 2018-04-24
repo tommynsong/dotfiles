@@ -27,8 +27,8 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{red} \Ue771 %f %F{yellow
-}\Uf054 "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{purple} \Uf2c5 %f %F{green
+}\Uf120 "
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
@@ -52,7 +52,7 @@ fi
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="tommynsong"
+DEFAULT_USER="tsong"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -128,7 +128,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
