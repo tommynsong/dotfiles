@@ -111,6 +111,7 @@ plugins=(
   terraform
   pylint
   aws
+  zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
