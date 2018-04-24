@@ -55,7 +55,7 @@ fi
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="tsong"
+DEFAULT_USER="$USER"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -157,3 +157,5 @@ export PATH=$PATH:~/bin
 # az cli
 # autoload bashcompinit && bashcompinit
 # source /usr/bin/az
+
+export PATH=$HOME/.local/bin:$PATH
