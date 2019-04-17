@@ -50,7 +50,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="jessicadeen"
+DEFAULT_USER="tsong"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -94,7 +94,24 @@ DEFAULT_USER="jessicadeen"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git history taskwarrior tmux tmuxinator zsh-autosuggestions)
+plugins=(
+  sudo
+  git
+  history
+  taskwarrior
+  gpg-agent
+  git-flow-avh
+  git-hubflow
+  gitignore
+  git-prompt
+  git-remote-branch
+  ssh-agent
+  pass
+  terraform
+  pylint
+  aws
+  zsh_reload
+)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -140,3 +157,7 @@ autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
 
 export GPG_TTY=$(tty)
+export PATH="/usr/local/sbin:/usr/local/share:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
