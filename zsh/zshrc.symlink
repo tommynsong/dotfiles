@@ -53,7 +53,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws docker_machine kubecontext go_version nv
 ## 
 
 # Default username to hide "user@hostname" info
-DEFAULT_USER="tsong"
+DEFAULT_USER="$USER"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -151,10 +151,10 @@ alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 alias k="kubectl"
 
-# export PATH=$PATH:~/bin
-# export GOPATH=~/go 
-# export PATH=$GOPATH/bin:$PATH
-# export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:~/bin
+export GOPATH=~/go 
+export PATH=$GOPATH/bin:$PATH
+export GOROOT=/usr/local/opt/go/libexec
 
 # az cli
 autoload bashcompinit && bashcompinit
