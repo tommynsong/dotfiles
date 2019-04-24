@@ -26,10 +26,13 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=($'%F{red} \uf1d0 %f %F{yellow}❯ ')
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=($'%F{red} \uf132 %f %F{yellow}\uf054 ')
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\Ue0c6'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\Ue0c7'
+	
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws docker_machine kubecontext go_version nvm virtualenv rvm status history)
 
 # # Refresh Function - https://babushk.in/posts/renew-environment-tmux.html
 # if [ -n "$TMUX" ]; then                                                                               
@@ -107,6 +110,7 @@ plugins=(
   git-remote-branch
   ssh-agent
   pass
+  nvm
   terraform
   pylint
   aws
@@ -161,3 +165,8 @@ export PATH="/usr/local/sbin:/usr/local/share:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
