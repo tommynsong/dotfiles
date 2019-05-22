@@ -8,7 +8,8 @@ export TERM=xterm-256color
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-POWERLEVEL9K_MODE="awesome-fontconfig"
+POWERLEVEL9K_MODE="nerdfont-complete"
+#POWERLEVEL9K_MODE="awesome-fontconfig"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # POWERLEVEL9K_IP_INTERFACE='en0'
@@ -31,7 +32,8 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=($'%F{red} \uf132 %f %F{yellow}\uf054 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\Ue0c6'
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\Ue0c7'
 	
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs go_version nvm virtualenv rvm kubecontext docker_machine aws)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs go_version nvm virtualenv rvm aws)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs go_version nvm virtualenv rvm kubecontext docker_machine aws)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history)
 
 # # Refresh Function - https://babushk.in/posts/renew-environment-tmux.html
@@ -101,8 +103,12 @@ plugins=(
   sudo
   git
   history
+  colorize
+  autopep8
+  command-not-found
   taskwarrior
   gpg-agent
+  github
   git-flow-avh
   git-hubflow
   gitignore
@@ -111,6 +117,10 @@ plugins=(
   ssh-agent
   pass
   nvm
+  npm
+  iterm2
+  go
+  golang
   terraform
   pylint
   aws
@@ -170,3 +180,23 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+eval "$(pyenv init -)"
+
+if which pyenv-virtualenv-init > /dev/null; 
+then 
+  eval "$(pyenv virtualenv-init -)"; 
+fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tsong/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
