@@ -149,7 +149,7 @@ then
     success "dependencies installed"
     echo ''
     echo "Now updating dependencies..."
-    pip2 install --upgrade pip setuptools
+    pip3 install --upgrade pip setuptools
   else
     fail "error installing dependencies"
   fi

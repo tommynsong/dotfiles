@@ -38,7 +38,7 @@
     email = tommynsong@gmail.com
     signingkey = F3A6D7AF9155D4B9
 [commit]
-    gpgsign = true
+#    gpgsign = true
 [credential]
     helper = cache --timeout=3600
 [filter "lfs"]
