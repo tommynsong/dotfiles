@@ -1,7 +1,8 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
-tap sambadevi/powerlevel9k
+tap 'sambadevi/powerlevel9k'
+tap 'homebrew/cask-fonts'
 
 brew 'ack'
 brew 'coreutils'
@@ -15,3 +16,5 @@ brew 'pyenv'
 brew 'rbenv'
 brew 'wget'
 brew 'powerlevel9k'
+
+cask 'font-hack-nerd-font'
