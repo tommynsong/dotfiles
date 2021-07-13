@@ -3,6 +3,12 @@
     "tap": {
       "homebrew/bundle": {
         "revision": "939d2c79693d264b12eb973de72d37195c8fea0d"
+      },
+      "sambadevi/powerlevel9k": {
+        "revision": "08c8f8fc98fe51f6e05e74b0f0bed9ec0bee2ced"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "f2bdd0f1f5f18548bb6b36d8deff0440924c34b3"
       }
     },
     "brew": {
@@ -50,7 +56,7 @@
         }
       },
       "go": {
-        "version": "HEAD-cf4e3e3",
+        "version": "1.16.5",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
@@ -344,6 +350,21 @@
             }
           }
         }
+      },
+      "powerlevel9k": {
+        "version": "0.6.7",
+        "bottle": false
+      }
+    },
+    "cask": {
+      "font-hack-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-hack-nerd-font",
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     }
   },
@@ -351,9 +372,9 @@
     "macos": {
       "big_sur": {
         "HOMEBREW_VERSION": "3.2.0",
-        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "1fed5f6a840fc1b20b4e86147dedeba1fd3693fe",
-        "CLT": "12.5.0.22.9",
+        "CLT": "12.5.1.0.1.1623191612",
         "Xcode": "12.5.1",
         "macOS": "11.4"
       }
